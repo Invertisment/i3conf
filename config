@@ -152,3 +152,9 @@ bar {
 
 # Log out action
 bindsym $mod+Ctrl+l exec i3lock -c 000000 -d
+
+# Volume control shortcuts
+bindsym $mod+Control+Up exec amixer -D pulse sset Master 7%+ unmute
+bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
+
+
