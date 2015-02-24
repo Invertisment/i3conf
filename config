@@ -150,7 +150,7 @@ bar {
 }
 
 # Set default locking parameters (Blank screen)
-set $locker "i3lock -c 000000 -d"
+set $locker i3lock -c 000000 -d
 
 # Log out action keybind
 bindsym $mod+Control+l exec $locker
