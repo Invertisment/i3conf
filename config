@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $ctrl Ctrl
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -150,11 +151,15 @@ bar {
 }
 
 # Set default locking parameters (Blank screen)
-set $locker "i3lock -c 000000 -d"
+set $locker i3lock -c 000000 -d
 
-# Log out action keybind
+# Log out shortcut
 bindsym $mod+Control+l exec $locker
 
 # Setup idle lock activation
 exec xautolock -time 1 -locker $locker
+
+# Volume control shortcuts
+bindsym $mod+Control+Up exec amixer -D pulse sset Master 7%+ unmute
+bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
 
