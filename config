@@ -156,5 +156,5 @@ set $locker "i3lock -c 000000 -d"
 bindsym $mod+Control+l exec $locker
 
 # Setup idle lock activation
-exec xautolock -time 1 -locker $locker &
+exec xautolock -time 1 -locker $locker
 
