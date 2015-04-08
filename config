@@ -162,13 +162,13 @@ bar {
 }
 
 # Set default locking parameters (Blank screen)
-set $locker i3lock -c 000000 -d
+set $locker ~/.i3/commands/lock.sh
 
 # Log out shortcut
 bindsym $mod+Control+l exec $locker
 
 # Setup idle lock activation
-exec xautolock -time 1 -locker $locker
+exec "xautolock -time 10 -locker $locker"
 
 # Volume control shortcuts
 bindsym $mod+Control+Up exec amixer -D pulse sset Master 7%+ unmute
