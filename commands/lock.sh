@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash
 
 # Take a screenshot
 scrot /tmp/screen_locked.png
