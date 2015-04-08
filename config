@@ -174,3 +174,5 @@ exec "xautolock -time 10 -locker $locker"
 bindsym $mod+Control+Up exec amixer -D pulse sset Master 7%+ unmute
 bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
 
+# Print Screen
+bindsym Print exec ~/.i3/commands/printScreen.sh
