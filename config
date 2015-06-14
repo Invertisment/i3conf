@@ -58,7 +58,8 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -77,6 +78,12 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# move focused window
+bindsym $Ctrl+$mod+Shift+h move left 150 px
+bindsym $Ctrl+$mod+Shift+j move down 150 px
+bindsym $Ctrl+$mod+Shift+k move up 150 px
+bindsym $Ctrl+$mod+Shift+l move right 150 px
 
 ## alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
@@ -156,7 +163,7 @@ bindsym $mod+Shift+$f6 move container to workspace f6
 bindsym $mod+Shift+$f7 move container to workspace f7
 bindsym $mod+Shift+$f8 move container to workspace f8
 bindsym $mod+Shift+$f9 move container to workspace f9
-bindsym $mod+Shift+$f0 move container to workspace f10
+bindsym $mod+Shift+$f10 move container to workspace f10
 bindsym $mod+Shift+$f11 move container to workspace f11
 bindsym $mod+Shift+$f12 move container to workspace f12
 
@@ -214,3 +221,7 @@ bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
 
 # Print Screen
 bindsym Print exec ~/.i3/commands/printScreen.sh
+bindsym $Ctrl+Print exec ~/.i3/commands/printScreen.sh -f
+
+# Set wallpaper
+exec ~/.i3/wall/refreshWall.sh
