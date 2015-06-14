@@ -217,3 +217,5 @@ bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
 bindsym Print exec ~/.i3/commands/printScreen.sh
 bindsym $Ctrl+Print exec ~/.i3/commands/printScreen.sh -f
 
+# Set wallpaper
+exec ~/.i3/wall/refreshWall.sh
