@@ -216,8 +216,10 @@ bindsym $mod+Control+l exec $locker
 exec "xautolock -time 10 -locker $locker"
 
 # Volume control shortcuts
-bindsym $mod+Control+Up exec amixer -D pulse sset Master 7%+ unmute
-bindsym $mod+Control+Down exec amixer -D pulse sset Master 7%- unmute
+set $volUp exec amixer -D pulse sset Master 7%+ unmute
+set $volDown exec amixer -D pulse sset Master 7%- unmute
+bindsym $mod+Control+Up $volUp
+bindsym $mod+Control+Down $volDown
 
 # Print Screen
 bindsym Print exec ~/.i3/commands/printScreen.sh
