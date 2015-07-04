@@ -227,3 +227,8 @@ bindsym $Ctrl+Print exec ~/.i3/commands/printScreen.sh -f
 
 # Set wallpaper
 exec ~/.i3/wall/refreshWall.sh
+
+################# Aesthetic config #################
+
+new_window 1pixel
+new_float 1pixel
