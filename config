@@ -200,12 +200,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
-
 # Set default locking parameters (Blank screen)
 set $locker ~/.i3/commands/lock.sh
 
@@ -227,3 +221,55 @@ bindsym $Ctrl+Print exec ~/.i3/commands/printScreen.sh -f
 
 # Set wallpaper
 exec ~/.i3/wall/refreshWall.sh
+
+################# Aesthetic config #################
+
+new_window 1pixel
+new_float 1pixel
+
+set $col_bo1 #4c7899
+set $col_bo2 #333333
+set $col_bo3 #333333
+set $col_bo4 #2f343a
+
+set $col_ba1 #285577
+set $col_ba2 #5f676a
+set $col_ba3 #222222
+set $col_ba4 #900000
+
+set $col_t1  #ffffff
+set $col_t2  #ffffff
+set $col_t3  #888888
+set $col_t4  #ffffff
+
+set $col_i1  #2e9ef4
+set $col_i2  #484e50
+set $col_i3  #292d2e
+set $col_i4  #900000
+
+# class                  border  backgr.  text     indicaor
+client.focused           $col_bo1 $col_ba1 $col_t1 $col_i1 
+client.focused_inactive  $col_bo2 $col_ba2 $col_t2 $col_i2 
+client.unfocused         $col_bo3 $col_ba3 $col_t3 $col_i3 
+client.urgent            $col_bo4 $col_ba4 $col_t4 $col_i4 
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3status
+    #status_command "~/.i3/status.sh"
+    mode hide       #<dock|hide>
+    modifier $mod   #Mod1-Mod5, Shift, Control
+    position bottom #<top|bottom>
+
+    colors {
+        #background $c_bg1
+        #statusline #ff0000
+        #separator  #666666
+        focused_workspace  $col_bo1 $col_ba1 $col_t1
+        active_workspace   $col_bo2 $col_ba2 $col_t2
+        inactive_workspace $col_bo3 $col_ba3 $col_t3
+        urgent_workspace   $col_bo4 $col_ba4 $col_t4
+    }
+}
+
