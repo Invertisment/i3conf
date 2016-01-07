@@ -242,8 +242,8 @@ exec ~/.i3/wall/refreshWall.sh
 
 ################# Aesthetic config #################
 
-new_window 1pixel
-new_float 1pixel
+#new_window pixel 0
+#new_float pixel 0
 
 set $col_bo1 #4c7899
 set $col_bo2 #333333
@@ -290,4 +290,11 @@ bar {
         urgent_workspace   $col_bo4 $col_ba4 $col_t4
     }
 }
+# Window config
+for_window [class="^.*"] floating disable
+# Chromium config
+for_window [class="^chromium-browser$"] border pixel 1
+for_window [class="^jetbrains-idea$"] border pixel 1
+for_window [class="^hl2_linux$"] border pixel 0
 
+assign [class="^sun-awt-X11-XDialogPeer$"] f12
