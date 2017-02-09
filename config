@@ -277,6 +277,7 @@ bar {
 # Window fullscreen config
 for_window [class="."] floating disable
 for_window [class="^chromium-browser$"] border pixel 1
+for_window [class="^Firefox$"] border pixel 1
 for_window [class="^jetbrains-[a-z]+$"] border pixel 1
 
 #for_window [instance="sun-awt-X11-XFramePeer"] floating enable
