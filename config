@@ -276,7 +276,7 @@ bar {
 
 # Window fullscreen config
 for_window [class="."] floating disable
-for_window [class="^chromium-browser$"] border pixel 1
+for_window [class="^[cC]hromium-browser$"] border pixel 1
 for_window [class="^Firefox$"] border pixel 1
 for_window [class="^jetbrains-[a-z]+$"] border pixel 1
 
@@ -287,10 +287,7 @@ for_window [class="^hl2_linux$"] border pixel 0
 
 for_window [class="^Flashplayer$"] floating enable
 
-# Settings
-exec --no-startup-id mate-settings-daemon
-
 # Proper startup
-exec --no-startup-id "dex -ae X-MATE"
+exec --no-startup-id "dex -ae MATE"
 
 exec --no-startup-id "wmname LG3D"
