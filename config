@@ -48,12 +48,14 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL=mate-terminal i3-sensible-terminal
 
 # exit focused window
 bindsym $mod+Shift+q kill
 # kill focused window
-bindsym $mod+Shift+x exec xdotool getwindowfocus windowkill
+bindsym $mod+Shift+x exec test "$(xdotool getwindowfocus getwindowname)" = "i3" \
+  && notify-send "Not killing i3" \
+  || xdotool getwindowfocus windowkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -287,16 +289,20 @@ bar {
 for_window [class="."] floating disable
 for_window [class="^[cC]hromium-browser$"] border pixel 1
 for_window [class="^Firefox$"] border pixel 1
+for_window [class="^Tor Browser$"] border pixel 1
 for_window [class="^jetbrains-[a-z]+$"] border pixel 1
+for_window [class="^[eE]macs"] border pixel 1
 
 #for_window [instance="sun-awt-X11-XFramePeer"] floating enable
 for_window [instance="^sun-awt-X11-XDialogPeer$"] floating enable
+for_window [instance="^.*Wallet.*$"] floating enable
 
 for_window [class="^hl2_linux$"] border pixel 0
 
 for_window [class="^Flashplayer$"] floating enable
 
 # Proper startup
-exec --no-startup-id "dex -ae MATE"
+# MATE makes sure to start up power-manager
+exec --no-startup-id dex -ae MATE
 
 exec --no-startup-id "wmname LG3D"
