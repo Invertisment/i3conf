@@ -225,8 +225,63 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+# Move workspaces to current Randr output
+mode "workspace move" {
+        bindsym $mod+Shift+h move workspace to output left; focus output right
+        bindsym $mod+Shift+j move workspace to output down; focus output up
+        bindsym $mod+Shift+k move workspace to output up; focus output down
+        bindsym $mod+Shift+l move workspace to output right; focus output left
+
+        # change focus
+        bindsym $mod+h focus left
+        bindsym $mod+j focus down
+        bindsym $mod+k focus up
+        bindsym $mod+l focus right
+
+        # switch to workspace
+        bindsym $mod+$1 workspace 1
+        bindsym $mod+$2 workspace 2
+        bindsym $mod+$3 workspace 3
+        bindsym $mod+$4 workspace 4
+        bindsym $mod+$5 workspace 5
+        bindsym $mod+$6 workspace 6
+        bindsym $mod+$7 workspace 7
+        bindsym $mod+$8 workspace 8
+        bindsym $mod+$9 workspace 9
+        bindsym $mod+$0 workspace 10
+        bindsym $mod+aogonek workspace 1
+        bindsym $mod+ccaron workspace 2
+        bindsym $mod+eogonek workspace 3
+        bindsym $mod+eabovedot workspace 4
+        bindsym $mod+iogonek workspace 5
+        bindsym $mod+scaron workspace 6
+        bindsym $mod+uogonek workspace 7
+        bindsym $mod+umacron workspace 8
+        bindsym $mod+doublelowquotemark workspace 9
+        bindsym $mod+leftdoublequotemark workspace 10
+        bindsym $mod+$f1 workspace f1
+        bindsym $mod+$f2 workspace f2
+        bindsym $mod+$f3 workspace f3
+        bindsym $mod+$f4 workspace f4
+        bindsym $mod+$f5 workspace f5
+        bindsym $mod+$f6 workspace f6
+        bindsym $mod+$f7 workspace f7
+        bindsym $mod+$f8 workspace f8
+        bindsym $mod+$f9 workspace f9
+        bindsym $mod+$f10 workspace f10
+        bindsym $mod+$f11 workspace f11
+        bindsym $mod+$f12 workspace f12
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+m mode "workspace move"
+
+
+
 
 # Set default locking parameters (Blank screen)
 set $locker "mate-screensaver-command -l"
@@ -288,6 +343,7 @@ bar {
 # Window fullscreen config
 for_window [class="."] floating disable
 for_window [class="^[cC]hromium-browser$"] border pixel 1
+for_window [class="^Navigator$"] border pixel 1
 for_window [class="^Firefox$"] border pixel 1
 for_window [class="^Tor Browser$"] border pixel 1
 for_window [class="^jetbrains-[a-z]+$"] border pixel 1
