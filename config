@@ -37,7 +37,7 @@ set $f12 F12
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+## font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -323,10 +323,9 @@ client.urgent            $col_bo4 $col_ba4 $col_t4 $col_i4
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    #status_command "~/.i3/status.sh"
+    status_command i3status #status_command "~/.i3/status.sh"
     mode hide       #<dock|hide>
-    modifier $mod   #Mod1-Mod5, Shift, Control
+    #modifier $mod   #Mod1-Mod5, Shift, Control
     position bottom #<top|bottom>
 
     colors {
@@ -344,7 +343,10 @@ bar {
 for_window [class="."] floating disable
 for_window [class="^[cC]hromium-browser$"] border pixel 1
 for_window [class="^Navigator$"] border pixel 1
-for_window [class="^Firefox$"] border pixel 1
+for_window [class="^[Ff]irefox$"] border pixel 1
+#for_window [window_role="Popup"] no_focus # Firefox small popup
+for_window [window_role="Popup"] floating enable # Firefox small popup
+
 for_window [class="^Tor Browser$"] border pixel 1
 for_window [class="^jetbrains-[a-z]+$"] border pixel 1
 for_window [class="^[eE]macs"] border pixel 1
@@ -356,6 +358,8 @@ for_window [instance="^.*Wallet.*$"] floating enable
 for_window [class="^hl2_linux$"] border pixel 0
 
 for_window [class="^Flashplayer$"] floating enable
+for_window [class="^[Mm]ate-screenshot$"] floating enable
+for_window [title="^RotMG Exalt Launcher$"] floating enable
 
 # Proper startup
 # MATE makes sure to start up power-manager
