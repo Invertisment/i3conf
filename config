@@ -212,6 +212,11 @@ mode "resize" {
         bindsym k resize shrink height      1 px or 1 ppt
         bindsym l resize grow width         1 px or 1 ppt
 
+        bindsym Shift+h resize shrink width       5 px or 5 ppt
+        bindsym Shift+j resize grow height        5 px or 5 ppt
+        bindsym Shift+k resize shrink height      5 px or 5 ppt
+        bindsym Shift+l resize grow width         5 px or 5 ppt
+
         # move focused window
         bindsym $mod+Shift+h move left      150 px
         bindsym $mod+Shift+j move down      150 px
@@ -286,7 +291,7 @@ bindsym $mod+Shift+m mode "workspace move"
 # Set default locking parameters (Blank screen)
 set $locker "mate-screensaver-command -l"
 
-# Log out shortcut
+# Lock shortcut
 bindsym $mod+Control+l exec $locker
 
 ################# Aesthetic config #################
@@ -314,7 +319,7 @@ set $col_i2  #484e50
 set $col_i3  #292d2e
 set $col_i4  #900000
 
-# class                  border  backgr.  text     indicaor
+# class                  border   backgr.  text    indicator
 client.focused           $col_bo1 $col_ba1 $col_t1 $col_i1
 client.focused_inactive  $col_bo2 $col_ba2 $col_t2 $col_i2
 client.unfocused         $col_bo3 $col_ba3 $col_t3 $col_i3
@@ -356,10 +361,20 @@ for_window [instance="^sun-awt-X11-XDialogPeer$"] floating enable
 for_window [instance="^.*Wallet.*$"] floating enable
 
 for_window [class="^hl2_linux$"] border pixel 0
+for_window [class="^Emacs$"] border pixel 0
+for_window [class="^jetbrains-idea-ce$"] border pixel 0
 
 for_window [class="^Flashplayer$"] floating enable
 for_window [class="^[Mm]ate-screenshot$"] floating enable
 for_window [title="^RotMG Exalt Launcher$"] floating enable
+
+# Various pop-ups
+for_window [window_type="dialog"] floating enable
+for_window [window_type="toolbar"] floating enable
+for_window [window_type="dropdown_menu"] floating enable
+for_window [window_type="popup_menu"] floating enable
+for_window [window_type="tooltip"] floating enable
+for_window [window_type="notification"] floating enable
 
 # Proper startup
 # MATE makes sure to start up power-manager
